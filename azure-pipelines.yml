@@ -21,6 +21,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true 
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
@@ -29,7 +30,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     
-- task: CopyFiles@2
+- task: CopyFiles@1
   inputs:
     targetFolder: '$(build.artifactstagingdirectory)'  
  
